@@ -18,11 +18,16 @@ namespace Ksu.Cis300.TrieLibrary
             if(s == "")
             {
                 _isEmpty = true;
+                return this;
+            }
+            else if( s[0] < 'a' || s[0] > 'z')
+            {
+                throw new ArgumentException();
             }
 
-            if(s[0] == _label)
+            else if(s[0] == _label)
             {
-                _onlyChild =_onlyChild.Add(s.Substring(1));
+                _onlyChild = _onlyChild.Add(s.Substring(1));
                 return this;
             }
 
@@ -51,7 +56,7 @@ namespace Ksu.Cis300.TrieLibrary
 
         public TrieWithOneChild(string s, bool empty)
         {
-            if(s == "")
+            if (s == "" || s[0] < 'a' || s[0] > 'z')
             {
                 throw new ArgumentException();
             }
@@ -59,7 +64,7 @@ namespace Ksu.Cis300.TrieLibrary
             _isEmpty = empty;
             _label = s[0];
             _onlyChild = new TrieWithNoChildren();
-            _onlyChild.Add(s.Substring(1));
+           _onlyChild = _onlyChild.Add(s.Substring(1));
         }
     }
 }

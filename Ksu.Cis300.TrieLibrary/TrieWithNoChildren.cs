@@ -18,7 +18,7 @@ namespace Ksu.Cis300.TrieLibrary
             if (s == "")
             {
                 _isEmpty = true;
-
+                return this;
             }
             else
             {
@@ -30,7 +30,8 @@ namespace Ksu.Cis300.TrieLibrary
         {
             if (s == "")
             {
-                _isEmpty = false;
+                return _isEmpty;
+
             }
             else
             {
